@@ -8,15 +8,14 @@
 // hint.
 
 
-use std::os::macos::raw::stat;
-use std::sync::Arc;
-use std::sync::Mutex;
+use std::sync::{Arc, Mutex};
 use std::thread;
 use std::time::Duration;
 
 struct JobStatus {
     jobs_completed: u32,
 }
+
 fn main() {
     let status = Arc::new(Mutex::new(JobStatus { jobs_completed: 0 }));
     let mut handles = vec![];
